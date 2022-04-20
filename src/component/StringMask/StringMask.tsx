@@ -16,7 +16,10 @@ export const StringMask = (props: Props) => {
 
   return (
     <div className={'answer-wrapper'}>
-      {`Answer: ${answer}`}
+      {
+        answer!=='' ? `Answer: ${answer}` :
+          <text className={'error-text'}>Please enter any string</text>
+      }
     </div>
   )
 }

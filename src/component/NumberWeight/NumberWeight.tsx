@@ -16,7 +16,10 @@ export const NumberWeight = (props: Props) => {
 
   return (
     <div className={'answer-wrapper'}>
-      {`Answer: ${answer}`}
+      {
+        answer!=='' ? `Answer: ${answer}` :
+          <text className={'error-text'}>Please enter a string of numbers separated by whitespace</text>
+      }
     </div>
   )
 }

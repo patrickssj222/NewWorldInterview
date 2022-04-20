@@ -1,4 +1,6 @@
 //Recursively replaces last positive integer of the string with *, up to 4 times
+import {RomanNumeral} from "../component/RomanNumeral/RomanNumeral";
+
 export const replaceMask = (input: string, count = 0): string => {
   if(count === 4)
     return input;
@@ -7,9 +9,10 @@ export const replaceMask = (input: string, count = 0): string => {
 
 //Reorders a string of multiple positive integers based on the sum of combined digits for each integer in ascending order
 export const reorderByWeight = (input: string) => {
+  if(!input.match(/^(\d*|\s)$/) || input === '')
+    return ''
   //Obtain array of integers from string
   const arr = input.split(' ');
-
   //Sorts the array based on weight
   arr.sort((a,b) => {
     //returns the weight, which is the sum of all digits for each integer
@@ -35,6 +38,12 @@ const RomanNumeralDefinition: {[key: string]: number} = {
 
 //Convert roman numerals to integer value
 export const convertRomanToInt = (input: string) => {
+  if(input.split('').find((char) =>
+    !Object.keys(RomanNumeralDefinition).some((roman) =>
+      roman === char
+    )
+  ) || input === '')
+    return -1;
   let result = 0;
   for(let i = 0; i < input.length; i++){
     //Need to check for special scenario

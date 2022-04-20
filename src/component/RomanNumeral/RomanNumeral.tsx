@@ -16,7 +16,10 @@ export const RomanNumeral = (props: Props) => {
 
   return (
     <div className={'answer-wrapper'}>
-      {`Answer: ${answer}`}
+      {
+        answer!==-1 ? `Answer: ${answer}` :
+          <text className={'error-text'}>'Please enter a valid Roman Numeral'</text>
+      }
     </div>
   )
 }
