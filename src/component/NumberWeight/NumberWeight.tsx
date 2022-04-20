@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from 'react';
 import {reorderByWeight, replaceMask} from "../../helper/helper";
+import '../AnswerComponents.css'
 
 interface Props {
   input: string;
