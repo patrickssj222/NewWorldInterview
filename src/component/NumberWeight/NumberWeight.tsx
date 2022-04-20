@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import React from 'react';
-import { replaceMask } from "../../helper/helper";
+import {reorderByWeight, replaceMask} from "../../helper/helper";
 
 interface Props {
   input: string;
 }
-export const StringMask = (props: Props) => {
+export const NumberWeight = (props: Props) => {
   const { input } = props;
   const [answer, setAnswer] = useState<string>('');
 
   useEffect(() => {
-    setAnswer(replaceMask(input))
+    setAnswer(reorderByWeight(input))
   },[input])
 
   return (

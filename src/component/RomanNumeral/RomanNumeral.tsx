@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import React from 'react';
-import { replaceMask } from "../../helper/helper";
+import {convertRomanToInt, reorderByWeight, replaceMask} from "../../helper/helper";
 
 interface Props {
   input: string;
 }
-export const StringMask = (props: Props) => {
+export const RomanNumeral = (props: Props) => {
   const { input } = props;
-  const [answer, setAnswer] = useState<string>('');
+  const [answer, setAnswer] = useState<number>(0);
 
   useEffect(() => {
-    setAnswer(replaceMask(input))
+    setAnswer(convertRomanToInt(input))
   },[input])
 
   return (
