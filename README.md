@@ -7,9 +7,13 @@ This project was done for New World Inc. interview
 
 In the project directory, you can run:
 
+### `yarn install`
+Installs the necessary node modules to run the application
+
 ### `yarn start`
 
 Runs the app in the development mode.\
+Make sure yarn install is ran previously
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
