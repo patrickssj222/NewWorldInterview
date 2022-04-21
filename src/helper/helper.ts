@@ -9,7 +9,7 @@ export const replaceMask = (input: string, count = 0): string => {
 
 //Reorders a string of multiple positive integers based on the sum of combined digits for each integer in ascending order
 export const reorderByWeight = (input: string) => {
-  if(!input.match(/^(\d*|\s)$/) || input === '')
+  if(!input.match(/^(\d|\s)*$/) || input === '')
     return ''
   //Obtain array of integers from string
   const arr = input.split(' ');
@@ -22,7 +22,9 @@ export const reorderByWeight = (input: string) => {
     return (getWeight(a) - getWeight(b))
   })
   //recombined the sorted integer into a string seperated by space and return
-  return arr.reduce((acc, curr) => (`${acc} ${curr}`),'');
+  return arr.reduce((acc, curr, index) =>
+    //Add whitespace at the end of each character other than the last element
+    (index !== arr.length-1 ? `${acc}${curr} `: `${acc}${curr}`),'');
 }
 
 //Corresponding value of roman numeral
