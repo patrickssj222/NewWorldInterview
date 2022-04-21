@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+# New World Inc. Interview Exercise
+#### April 20th 2022 Yun Hao
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was done for New World Inc. interview
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `yarn start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+### `yarn test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Runs the test files\
+Test covers all functions in the helper.ts
 
-### `npm run build`
+## Side Notes & Limitations
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. For the first question, I understand from the test file you are looking to replace
+   each positive integer 'digit' ([0-9]) with *. Thus multi-digit numbers or negative 
+   integers such as (89, -9, etc.) are treated as seperate digits.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. I understand you want to avoid too many comments, but I have alot of modern one 
+   liner solutions and regex expressions. I want to comment explaining my thought 
+   process to demonstrate these are my own. Of course in real-life scenarios these
+   are not needed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. To better satisfy my role in the position I'm applying for, I decided to go a 
+   little bit above and beyond to create a simple react app for you to enter your 
+   inputs for testing to make your life easier. Including a very simple designed 
+   form with some minimal css to demonstrate my understanding in the Frontend field.
+   
+### Test #1
+Create a function that will taken in a random string and mask the last 4 numbers using
+asterisk (*).
 
-### `npm run eject`
+Example:
+“F3f213h82r3” should be “F3f21* h** r*”
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+###Test #2
+You are provided a string containing a list of positive integers separated by a space (" ").
+Take each value and calculate the sum of its digits, which we call it's "weight". Then return
+the list in ascending order by weight, as a string joined by a space.
+For example 99 will have "weight" 18, 100 will have "weight"
+1 so in the output 100 will come before 99.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Example:
+"56 65 74 100 99 68 86 180 90" ordered by numbers weights becomes:
+"100 180 90 56 65 74 68 86 99"
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+When two numbers have the same "weight", let's consider them to be strings and not
+numbers:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+100 is before 180 because its "weight" (1) is less than the one of 180 (9)
+and 180 is before 90 since, having the same "weight" (9) it comes before as a string.
+All numbers in the list are positive integers and the list can be empty.
 
-## Learn More
+###Test #3
+Create a function that takes a Roman numeral as its argument and returns its value as a
+numeric decimal integer. You need to validate the form of the Roman numeral.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Modern Roman numerals are written by expressing each decimal digit of the number to be
+encoded separately, starting with the leftmost digit and skipping any 0s. So 1990 is rendered
+"MCMXC" (1000 = M, 900 = CM, 90 = XC) and 2008 is rendered "MMVIII" (2000 = MM, 8 =
+VIII). The Roman numeral for 1666, "MDCLXVI", uses each letter in descending order
